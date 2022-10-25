@@ -1,0 +1,9 @@
+[run]
+source=.
+omit=.venv,*/migrations/*,*/tests/*,manage.py,photos_manager/*
+branch = True
+
+[report]
+precision = 2
+fail_under = 100
+show_missing = True
