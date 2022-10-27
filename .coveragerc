@@ -1,6 +1,6 @@
 [run]
 source=.
-omit=.venv,*/migrations/*,*/tests/*,manage.py,photos_manager/*
+omit=.venv/*,*/migrations/*,*/tests/*,manage.py,photos_manager/*
 branch = True
 
 [report]
