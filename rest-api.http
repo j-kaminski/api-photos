@@ -1,0 +1,40 @@
+###
+GET http://localhost:8000/api/photos/
+Accept: application/json
+
+###
+GET http://localhost:8000/api/photos/?page=2
+Accept: application/json
+
+###
+POST http://localhost:8000/api/photos/
+Content-Type: application/json
+
+{
+  "title": "accusamus beatae ad facilis cum similique qui sunt",
+  "albumId": 1,
+  "url": "https://via.placeholder.com/600/92c952"
+}
+
+###
+POST http://localhost:8000/api/photos/
+Content-Type: application/json
+
+{
+  "album_id": 1,
+  "remote_url": "https://via.placeholder.com/600/92c952"
+}
+
+
+###
+# /api/photos/<id>
+# GET: Retrieve a photo
+# PUT: Update a photo
+# PATCH: Partial update a photo
+# DELETE: Delete a photo
+OPTIONS http://localhost:8000/api/photos/1
+Accept: application/json
+
+###
+GET http://localhost:8000/api/photos/1
+Accept: application/json

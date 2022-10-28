@@ -4,23 +4,17 @@ import requests
 import re
 
 
-# https://via.placeholder.com/600/88c71d"
-def image_data(url):
-    color_index = -1
-    size_index = -2
-    url_tokens = url.split("/")
-    if len(url_tokens) > 2:
-        color = url_tokens[color_index]
-        size = url_tokens[size_index]
-        # TODO match hex
-        if size.isnumeric():
-            return url
+def validator_image_data_url(url):
+    match = re.findall(r'/(\d+)/([a-fA-F0-9]+)(.\w+$|$)', url)[0]
+    print(match)
+    if match:
+        return url 
 
     raise serializers.ValidationError("URL image doesn't include size or color")
 
 
 class URLSerializer(serializers.Serializer):
-    url = serializers.URLField(max_length=200, validators=[image_data])
+    url = serializers.URLField(max_length=200, validators=[validator_image_data_url])
 
 
 class PhotoSerializer(serializers.ModelSerializer):
@@ -37,3 +31,10 @@ class PhotoSerializer(serializers.ModelSerializer):
             "height",
             "color"
         ]  # add image
+
+        # def validate_url(self, value):
+        #     print(value)
+        def validate(self, data):
+            print('here', data)
+            return 
+
